@@ -1,0 +1,42 @@
+<title>Taskfront</title>
+<meta name="theme-color" content="#E7ECF3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/tokens.css">
+<link rel="stylesheet" href="styles/app.css">
+<script>
+  // Apply the theme before first paint: saved choice, else the viewer's theme, else the OS.
+  (function () {
+    var t = 'auto';
+    try { t = localStorage.getItem('taskfront.theme') || 'auto'; } catch (e) {}
+    var r = document.documentElement, a = r.getAttribute('data-theme');
+    var dark = t === 'dark' || (t === 'auto' && (a ? a === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches));
+    r.classList.add('tf');
+    if (dark) r.classList.add('dark');
+  })();
+</script>
+
+<div class="shell" id="shell">
+  <header class="ph-hd">
+    <svg class="logo" viewBox="0 0 28 28" role="img" aria-label="Taskfront"><circle class="l1" cx="14" cy="14" r="13"></circle><circle class="l2" cx="14" cy="14" r="9.5"></circle><circle class="l1" cx="14" cy="14" r="6"></circle><circle class="l2" cx="14" cy="14" r="2.4"></circle></svg>
+    <h1 class="name">Taskfront</h1>
+    <span class="sync off" id="sync" role="status"><i></i><span id="sync-t">Connecting</span></span>
+    <span class="grow"></span>
+    <a class="ib" id="lvl" href="#me" aria-label="Your level, open your profile"><span class="badge s" id="lvl-badge"><b>1</b></span></a>
+    <button class="ib" id="filters" type="button" aria-label="Filters (coming soon)" aria-disabled="true" title="Filters are coming soon"><svg class="ico lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"></path></svg></button>
+  </header>
+
+  <main class="view" id="main" tabindex="-1" aria-live="polite"></main>
+
+  <div class="toasts" id="toasts"></div>
+
+  <nav class="tabbar" aria-label="Main">
+    <a href="#timeline" data-route="timeline"><svg class="ico lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"></path><circle cx="8" cy="6" r="2"></circle><circle cx="15" cy="12" r="2"></circle><circle cx="11" cy="18" r="2"></circle></svg>Timeline</a>
+    <a href="#list" data-route="list"><svg class="ico lg" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6h11M9 12h11M9 18h11"></path><circle cx="4.5" cy="6" r="1"></circle><circle cx="4.5" cy="12" r="1"></circle><circle cx="4.5" cy="18" r="1"></circle></svg>List</a>
+    <a href="#focus" data-route="focus"><svg class="ico lg" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.2.9-4.5 4.4 1 6.1L12 17.1 6.6 20l1-6.1L3.1 9.5l6.2-.9z"></path></svg>Focus</a>
+    <a href="#me" data-route="me"><svg class="ico lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21a8 8 0 0 1 16 0"></path></svg>Me</a>
+  </nav>
+</div>
+
+<script type="module" src="js/app.js"></script>

@@ -1,0 +1,107 @@
+/* Taskfront app layout (phone-first). Every colour, radius, shadow and font comes from tokens.css. */
+
+/* ---------- Page + shell ---------- */
+html.tf{height:100%;box-sizing:border-box;background:var(--bg-2)}
+html.tf.dark{color-scheme:dark}
+html.tf body{height:100%;margin:0;background:var(--bg-2);color:var(--ink);font-family:var(--f-ui)}
+.shell{position:relative;height:100%;max-width:480px;margin:0 auto;display:flex;flex-direction:column;background:var(--bg);overflow:hidden}
+@media (min-width:481px){.shell{border-left:1px solid var(--line);border-right:1px solid var(--line)}}
+.grow{flex:1}
+
+/* ---------- Header (from Phone-Timeline) ---------- */
+.ph-hd{display:flex;align-items:center;gap:8px;height:52px;padding:0 6px 0 16px;flex:none}
+.logo{width:26px;height:26px;flex:none}
+.logo .l1{fill:var(--ink)}
+.logo .l2{fill:var(--bg)}
+.ph-hd .name{font-family:var(--f-num);font-size:24px;font-weight:700;line-height:1;letter-spacing:.01em}
+.ph-hd .sync{margin-left:4px;min-width:0;max-width:112px;line-height:1.1}
+.ph-hd .sync i{flex:none}
+.ib{width:44px;height:44px;display:grid;place-items:center;border-radius:12px;color:var(--ink-2);flex:none}
+.ib:hover{background:var(--surface-3)}
+.ib:focus-visible{outline:none;box-shadow:var(--focus)}
+.ib[aria-disabled="true"]{opacity:.42;cursor:not-allowed}
+.ib[aria-disabled="true"]:hover{background:none}
+.badge.s{width:28px;height:32px}
+.badge.s b{font-size:15px}
+.badge.s::before{inset:2.5px}
+
+/* ---------- Main view ---------- */
+.view{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:4px 16px 24px;display:flex;flex-direction:column;gap:12px}
+.view:focus{outline:none}
+.vh{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-top:4px}
+.vh h2{font-family:var(--f-num);font-size:26px;font-weight:700;line-height:1.1}
+.vh .note{font-size:12.5px;color:var(--ink-3);font-weight:600}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-1);padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.card-h h3{font-family:var(--f-num);font-size:20px;font-weight:700;line-height:1.1;margin:0}
+.card-h .note{font-size:12.5px;color:var(--ink-3)}
+.card p{font-size:13.5px;color:var(--ink-2);line-height:1.45}
+
+/* ---------- Encoding strip ---------- */
+.lg-row{display:grid;grid-template-columns:112px minmax(0,1fr);align-items:center;gap:12px;min-height:52px;border-top:1px solid var(--line);padding-top:8px}
+.lg-row:first-of-type{border-top:0;padding-top:0}
+.lg-ex{display:flex;align-items:center;justify-content:center;gap:8px}
+.lg-t1{font-size:14px;font-weight:700}
+.lg-t2{font-size:12.5px;color:var(--ink-3);line-height:1.3}
+
+.mx-scroll{overflow-x:auto;margin:0 -16px;padding:0 16px}
+.mx{display:grid;grid-template-columns:64px repeat(8,54px);grid-auto-rows:60px;min-width:max-content}
+.mx .ch{display:flex;align-items:flex-end;justify-content:center;text-align:center;padding-bottom:6px;border-bottom:1px solid var(--line);line-height:1.15;height:44px}
+.mx .rh{display:flex;flex-direction:column;justify-content:center;gap:1px;border-bottom:1px solid var(--line)}
+.mx .rh b{font-size:13.5px}
+.mx .rh span{font-family:var(--f-num);font-size:12px;color:var(--ink-3)}
+.mx .cl{display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line);border-left:1px solid var(--line)}
+.mx .cap{font-size:9.5px}
+
+.szs{display:flex;align-items:flex-end;justify-content:space-between;gap:6px;padding:4px 2px 0}
+.sz{display:flex;flex-direction:column;align-items:center;gap:6px}
+.sz .num{font-size:17px;font-weight:700;line-height:1}
+.sz .px{font-size:11px;color:var(--ink-3);font-weight:600}
+
+.sts{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:10px}
+.st-cell{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 6px 10px;border:1px solid var(--line);border-radius:var(--r-md);text-align:center}
+.st-cell .tcw{position:relative;display:grid;place-items:center;height:44px}
+.st-cell .d{font-size:12px;font-weight:700;color:var(--ink-2)}
+
+/* ---------- Data check ---------- */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.stat{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:8px 10px;border-radius:var(--r-md);background:var(--surface-2)}
+.stat b{font-family:var(--f-num);font-size:24px;font-weight:700;line-height:1}
+.stat span{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--ink-2)}
+.dl{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line);padding-top:10px}
+.dl-h{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.dl-h .rn{font-size:13px;font-weight:700}
+.dl-h .rc{font-size:13px;color:var(--ink-3);font-weight:600}
+.dl-h .rod{font-size:12px;font-weight:700;color:var(--err)}
+.dl-c{display:flex;flex-wrap:wrap;align-items:center;gap:12px 14px;padding:6px 2px 4px}
+
+/* ---------- Me ---------- */
+.prof{display:flex;align-items:center;gap:16px}
+.prof .lv{font-family:var(--f-num);font-size:28px;font-weight:700;line-height:1}
+.prof .ti{font-size:14px;font-weight:700;color:var(--ink-2);margin-top:2px}
+.prof .xpt{font-size:12.5px;color:var(--ink-3);font-weight:600;margin-top:8px}
+.prof .xpt b{font-family:var(--f-num);font-size:15px;color:var(--ink)}
+.prof .xp{width:100%;margin-top:6px}
+.kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.set-row{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px}
+.set-row .t1{font-size:14px;font-weight:700}
+.set-row .t2{font-size:12.5px;color:var(--ink-3)}
+.seg.ph{padding:3px}
+.seg.ph>button{height:38px;padding:0 14px}
+.seg>button:focus-visible{outline:none;box-shadow:var(--focus)}
+
+/* ---------- Empty / loading ---------- */
+.empty{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:28px 18px}
+.empty .ico{width:28px;height:28px;color:var(--ink-3)}
+.empty h3{font-family:var(--f-num);font-size:22px;font-weight:700;margin:0}
+.empty p{max-width:34ch}
+.skel-row{height:16px}
+
+/* ---------- Toasts + tab bar ---------- */
+.toasts{position:absolute;left:0;right:0;bottom:84px;height:0;z-index:40}
+.toasts .toast{bottom:0;max-width:calc(100% - 32px);white-space:normal}
+.shell .tabbar{flex:none;padding:6px 8px 8px}
+.tabbar a:focus-visible{outline:none;box-shadow:var(--focus)}
+
+@media (prefers-reduced-motion:reduce){.tf *{transition:none!important;animation:none!important}}
